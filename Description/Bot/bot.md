@@ -54,7 +54,7 @@ Methods/functions:
 			<th>Called by</th>
 			<td colspan="2">
 				<ul>
-					<li>Processor.bots</li>
+					<li>Processor.stories_and_posts_group</li>
 				</ul>
 			</td>
 		</tr>
@@ -99,7 +99,7 @@ Methods/functions:
 			<th>Called by</th>
 			<td colspan="2">
 				<ul>
-					<li>Processor.start_bot</li>
+					<li>Processor.stories_and_posts_group</li>
 				</ul>
 			</td>
 		</tr>
