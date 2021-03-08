@@ -81,7 +81,4 @@ Functions:
 	</tbody>
 </table>
 
-It defines a function:
-+ today: it gets the year, month and number of day of today.
-
 It appends on a file with the name given by today the arguments passed as input.
