@@ -21,14 +21,14 @@ def tasks(number_of_accounts, number_of_processes, accounts, username, password,
 
 
 def group_of_users(accounts, minimum_number_of_accounts_per_group, number_of_remained_accounts):
-    if number_of_remained_accounts - minimum_number_of_accounts_per_group < minimum_number_of_accounts_per_group:
+    if number_of_remained_accounts - minimum_number_of_accounts_per_group <= minimum_number_of_accounts_per_group:
         n = number_of_remained_accounts
     else:
         n = minimum_number_of_accounts_per_group
     group = []
     for _ in range(n):
         group.append(next(accounts))
-    return group
+    return tuple(group)
 
 
 def stories_and_posts_all(users, number_of_processes, number_of_accounts, username, password, rest_time, driver_name, driver_string, number_of_posts, function):
@@ -38,7 +38,7 @@ def stories_and_posts_all(users, number_of_processes, number_of_accounts, userna
         executor.map(stories_and_posts_group, tasks_collection)
     end = time.perf_counter()
     elapsed_time = round((end - start)/60, 1)
-    function(f"Time passed: {elapsed_time}\n")
+    function(f"Time passed: {elapsed_time}")
 
 
 def stories_and_posts_group(task):

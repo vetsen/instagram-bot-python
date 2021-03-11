@@ -3,7 +3,7 @@ from datetime import date
 
 
 def wait(hours):
-    time.sleep(hours)
+    time.sleep(60*60*hours)
 
 
 def write_log(*args):
