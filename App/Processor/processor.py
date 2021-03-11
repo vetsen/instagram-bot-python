@@ -1,7 +1,10 @@
 from math import floor
 import time
 import concurrent.futures
-from ..Bot import bot
+
+import sys
+sys.path.append("../Bot/")
+import bot
 
 
 def tasks(number_of_accounts, number_of_processes, accounts, username, password, rest_time, driver_name, driver_string, number_of_posts, function):

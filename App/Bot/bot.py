@@ -1,4 +1,3 @@
-from simplebot import SimpleBot
 from watcherbot import WatcherBot
 from likerbot import LikerBot
 

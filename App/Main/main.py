@@ -1,7 +1,11 @@
 import preferences
 import sys
-from ..Utility import utility
-from ..Processor import processor
+
+sys.path.append("../Utility/")
+import utility
+
+sys.path.append("../Processor/")
+import processor
 
 
 pref = preferences.Preferences()
