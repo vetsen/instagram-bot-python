@@ -1,6 +1,18 @@
 from selenium import webdriver
 
 
+drivers = {
+    "Firefox": {
+        "function": webdriver.Firefox,
+        "string": "./geckodriver"
+    },
+    "Chrome": {
+        "function": webdriver.Chrome,
+        "string": "./chromedriver"
+    }
+}
+
+
 class Preferences:
     def __init__(self):
         self.hours_of_sleep = 0
@@ -11,8 +23,8 @@ class Preferences:
         self.username = ""
         self.password = ""
         self.rest_time = 5
-        self.driver_function = webdriver.Firefox
-        self.driver_string = "./geckodriver"
+        self.driver_function = drivers["Firefox"]["function"]
+        self.driver_string = drivers["Firefox"]["string"]
 
     @property
     def accounts(self):
