@@ -1,7 +1,7 @@
 # Instagram bot
 Python script that emulates a human on Instagram. This bot watches the stories and likes the posts of the users specified.
 
-![Example of application](./example.gif)
+![Example of application](./images/example.gif)
 ## Installation
 + Install python3
 + Install selenium
@@ -19,23 +19,22 @@ Python comes preinstalled in Linux and Mac. If for some reason you have python 2
 
 On Windows, go to the [download page](https://www.python.org/downloads/) of python and download the windows installer (x32 or x64 depending on your computer). Run the installer and make sure that on that "Add python to PATH" is selected.
 
-![Python installer](pyinstaller)
+![Python installer](./images/pyinstaller.PNG)
 
 Then click "Install now". At the end, click on "Disable path length limit". Python is installed. To check that everything has gone well just open cmd and run the command `python` then it will prompt with a >>> where you can insert python code, like in the image:
 
-![Python installed correctly](installcomplete)
+![Python installed correctly](./images/pyinstalled.PNG)
 
 #### Selenium
 There are multiple ways of installing selenium, in this section i will use pip. pip may come preinstalled so check if you have installed pip using the command `pip3 -V` or `pip -V`.
 
-![pip installed on linux](pipinstalledlinux)
-![pip installed on windows](pipinstalledwindows)
+![pip installed on windows](./images/pipwininstalled.PNG)
 
 If it isn't installed, on Linux for most of the distros the command `sudo apt install python3-pip` should work, otherwise follow [this guide](https://linuxconfig.org/install-pip-on-linux). For Mac, try to follow [this guide](https://www.geeksforgeeks.org/how-to-install-pip-in-macos/). For Windows, [this guide](https://www.liquidweb.com/kb/install-pip-windows/).
 
 Once pip is installed just run the command `pip3 install selenium` or `pip install selenium`.
 
-![Selenium installed in cmd on windows](seleniumnstalled)
+![Selenium installed in cmd on windows](./images/winselinstalled.PNG)
 
 ### Adjusting the preferences
 These are the default preferences:
@@ -74,14 +73,14 @@ Once you have chosen your browser, you need to download the relative driver. For
 
 In order to work properly, your browser should have as a language English. Different languages could make the code work only partially (for example the liking process will not like the posts).
 #### Changing the accounts
-The element that you probably wanna change is the list of username to use during execution. You must specify the actual username, not the name or other information about the account. There are two ways to specify the list: the text file and explicitly saying the accounts to use.
+The element that you probably wanna change is the list of usernames to use during execution. You must specify the actual username, not the name or other information about the account. There are two ways to specify the list: the text file and explicitly saying the accounts to use.
 
 To use the text file, just write a text file that contains for each row only one username. Save the file and add the relative path of the file in `self.read_file_path`. For example, create a text file named *accounts.txt* and put it inside the Main folder, then you should change the preferences in this way:
 ```python
 self.read_file_path = "accounts.txt"
 ```
 
-To specify the accounts explicitly, `self.read_file_path` must be an empty string (`self.read_file_path = ""`), the just type the usernames inside the parenthesis, each user should be written inside the double quotes symbol and separated from the others with comma. Example of this are:
+To specify the accounts explicitly, `self.read_file_path` must be an empty string (`self.read_file_path = ""`), then just type the usernames inside the parenthesis, each user should be written inside the double quotes symbol and separated from the others with comma. Example of this are:
 ```python
 # Example 1
 self.accounts_hard_coded = ("somebody", "somebodyelse")
@@ -91,7 +90,7 @@ self.accounts_hard_coded = ("username1", "username2", "username3", "username4", 
 #### Multi-threading or multi-processing?
 The code runs the bots concurrently. If you don't want to use your computer too much during the execution, just set the number of processes to 1: `self.number_of_processes = 1`. If you wanna use more processes, you can change the number as you like.
 
-The bot runs concurrently for a functional requisite, but you can easily switch back and forth from multi-processing to multi-threading. To do that, change the function `stories_and_posts_all` *processor.py* inside Processor. For multi-processing the line should be:
+The bot runs concurrently for a functional requisite, but you can easily switch back and forth from multi-processing to multi-threading. To do that, change the function `stories_and_posts_all` in *processor.py* inside Processor. For multi-processing the line should be:
 ```python
 with concurrent.futures.ProcessPoolExecutor() as executor:
     executor.map(stories_and_posts_group, tasks_collection)
@@ -112,19 +111,11 @@ Using the terminal or cmd (for windows), go to the folder where you have downloa
 #### The log file
 When you run the code, it will write any relevant information on a log file (named by the day it has been run): for each user, there will be a line following the pattern: `User: story_state, post_state`. For example, it could be *kurzgesagt: watched the stories, liked the posts*. It will also write errors that have occurred.
 ## Usage example
-Here's an example working for Firefox in Linux:
-
-![Firefox, Linux](linux)
-
-
-Here's an example working for Firefox in Windows:
-
-![Firefox, Windows](firefoxwindows)
-
+The example at the beginning of this file shows the code working for Firefox in Linux.
 
 Here's an example working for Chrome in Windows:
 
-![Chrome, Windows](chromewindows)
+![Chrome, Windows](./images/chrome.gif)
 
 ## What's the description for?
 If you decide to fork this repo or develop your own version, the description will help you clearly see the dependencies between classes and packages so it's easier to write cleaner code.
