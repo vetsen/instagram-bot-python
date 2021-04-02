@@ -20,7 +20,10 @@ class SimpleBot:
             pass
 
         self.driver.find_element_by_name('username').send_keys(self.username)
-        self.driver.find_element_by_name('password').send_keys(self.password + Keys.RETURN)
+        self.driver.find_element_by_name('password').send_keys(self.password)
+        time.sleep(self.rest_time)
+
+        self.driver.find_element_by_name('password').send_keys("" + Keys.RETURN)
         time.sleep(self.rest_time)
 
     def go_to_page(self, user):
